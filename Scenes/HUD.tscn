@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Fonts/candles_.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://HUD.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="Theme" id=5]
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.376471, 0.584314, 0.878431, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TitleContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 50.0
+margin_bottom = -509.0
+
+[node name="Label" type="Label" parent="TitleContainer"]
+margin_right = 1024.0
+margin_bottom = 41.0
+theme = SubResource( 2 )
+text = "Bun Bun Jumper REMAKE"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="MessageContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 150.0
+margin_bottom = -409.0
+theme = SubResource( 5 )
+alignment = 1
+
+[node name="Label" type="Label" parent="MessageContainer"]
+margin_left = 473.0
+margin_top = 13.0
+margin_right = 550.0
+margin_bottom = 27.0
+text = "Level Select"
+
+[node name="ButtonContainer2" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 250.0
+margin_bottom = -303.0
+theme = SubResource( 5 )
+alignment = 1
+
+[node name="Level1Button" type="Button" parent="ButtonContainer2"]
+margin_left = 381.0
+margin_right = 456.0
+margin_bottom = 47.0
+theme = SubResource( 4 )
+text = "  1  "
+icon_align = 1
+
+[node name="Level2Button" type="Button" parent="ButtonContainer2"]
+margin_left = 460.0
+margin_right = 552.0
+margin_bottom = 47.0
+theme = SubResource( 4 )
+text = "  2  "
+icon_align = 1
+
+[node name="Level3Button" type="Button" parent="ButtonContainer2"]
+margin_left = 556.0
+margin_right = 643.0
+margin_bottom = 47.0
+theme = SubResource( 4 )
+text = "  3  "
+icon_align = 1
+
+[node name="ButtonContainer3" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 11.028
+margin_right = -0.000793457
+margin_bottom = -541.972
+theme = SubResource( 5 )
+
+[node name="ReturnButton" type="Button" parent="ButtonContainer3"]
+margin_right = 128.0
+margin_bottom = 47.0
+theme = SubResource( 4 )
+text = "Return"
+icon_align = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+columns = 3

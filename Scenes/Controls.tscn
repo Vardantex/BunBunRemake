@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Fonts/candles_.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Theme.tres" type="Theme" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[node name="Controls" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = 1.0
+color = Color( 0.317647, 0.454902, 0.670588, 1 )
+
+[node name="Title" type="Node" parent="."]
+
+[node name="TitleContainer" type="VBoxContainer" parent="Title"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 50.0
+margin_bottom = -509.0
+
+[node name="Label" type="Label" parent="Title/TitleContainer"]
+margin_right = 1024.0
+margin_bottom = 41.0
+theme = SubResource( 2 )
+text = "Bun Bun Jumper REMAKE"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+margin_top = 155.0
+margin_bottom = 205.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 41.0
+theme = ExtResource( 2 )
+text = "W/A/S/D - Arrow Keys: Move character"
+align = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+margin_top = 255.0
+margin_bottom = 305.0
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+margin_right = 1024.0
+margin_bottom = 41.0
+theme = ExtResource( 2 )
+text = "That's it."
+align = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+margin_left = 335.0
+margin_top = 355.0
+margin_right = -336.0
+
+[node name="ReturnButton" type="Button" parent="VBoxContainer3"]
+margin_right = 353.0
+margin_bottom = 47.0
+theme = SubResource( 4 )
+text = "RETURN"
+icon_align = 1
