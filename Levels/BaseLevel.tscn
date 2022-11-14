@@ -1,16 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Tiles/Terrain.tres" type="TileSet" id=1]
 [ext_resource path="res://Entity/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Items/JumpPad.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Items/CoinItem.tscn" type="PackedScene" id=4]
 
 [node name="BaseLevel" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 246, 269 )
+
+[node name="JumpPad" parent="." instance=ExtResource( 3 )]
+position = Vector2( 510, 339 )
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 0.5, 0.5 )
 tile_set = ExtResource( 1 )
 collision_layer = 4
 format = 1
-tile_data = PoolIntArray( 720896, 0, 0, 720902, 0, 0, 720908, 0, 0, 720914, 0, 0, 720924, 0, 0 )
+tile_data = PoolIntArray( 720896, 0, 0, 720902, 0, 0, 720908, 0, 0, 720914, 0, 0, 720920, 0, 0, 720924, 0, 0, 720930, 0, 0, 720936, 0, 0, 720942, 0, 0, 720948, 0, 0, 720954, 0, 0, 720960, 0, 0, 720965, 0, 0, 720971, 0, 0, 720977, 0, 0, 720983, 0, 0, 720989, 0, 0, 720995, 0, 0, 721001, 0, 0, 721007, 0, 0 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 246, 269 )
+[node name="CoinItem" parent="." instance=ExtResource( 4 )]
+position = Vector2( 658, 306 )

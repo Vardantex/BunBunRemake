@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Tiles/Terrain.tres" type="TileSet" id=1]
+[ext_resource path="res://Entity/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Items/JumpPad.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Items/CoinItem.tscn" type="PackedScene" id=4]
+
+[node name="Level1" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 0.5, 0.5 )
+tile_set = ExtResource( 1 )
+collision_layer = 4
+format = 1
+tile_data = PoolIntArray( -65511, 0, 0, -65505, 0, 0, -65499, 0, 0, -65493, 0, 0, 393268, 0, 0, 589868, 0, 0, 720896, 0, 0, 720902, 0, 0, 720908, 0, 0, 720914, 0, 0, 720924, 0, 0, 720930, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 123, 259 )
+
+[node name="JumpPads" type="Node" parent="."]
+
+[node name="JumpPad" parent="JumpPads" instance=ExtResource( 3 )]
+position = Vector2( 1684, 172 )
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="CoinItem" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 343, 244 )
+
+[node name="CoinItem2" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 467, 247 )
+
+[node name="CoinItem3" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 613, 250 )
+
+[node name="CoinItem4" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 826, 189 )
+
+[node name="CoinItem5" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 975, 268 )
+
+[node name="CoinItem6" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 1165, 258 )
+
+[node name="CoinItem7" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 1457, 188 )
+
+[node name="CoinItem8" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 1559, 188 )
+
+[node name="CoinItem9" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 1791, -177 )
+
+[node name="CoinItem10" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 1461, -218 )
+
+[node name="CoinItem11" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 1213, -142 )
+
+[node name="CoinItem12" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 924, -155 )
+
+[node name="CoinItem13" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 791, -126 )
+
+[node name="CoinItem14" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( -34, 347 )
+
+[node name="CoinItem15" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 1801, 150 )
+
+[node name="Enemy" type="Node" parent="."]

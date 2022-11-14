@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Fonts/candles_.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Theme.tres" type="Theme" id=2]
+[ext_resource path="res://Scenes/Controls.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -20,6 +21,7 @@ default_font = SubResource( 3 )
 [node name="Controls" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -81,3 +83,5 @@ margin_bottom = 47.0
 theme = SubResource( 4 )
 text = "RETURN"
 icon_align = 1
+
+[connection signal="pressed" from="VBoxContainer3/ReturnButton" to="." method="_on_ReturnButton_pressed"]

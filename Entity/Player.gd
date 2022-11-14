@@ -1,11 +1,15 @@
 extends KinematicBody2D
 
-var gravity = 900 
+var gravity = 1100 
 var velocity = Vector2.ZERO
-var maxHSpeed = 100
+var maxHSpeed = 20
 var Hacceleration = 500
-var jumpSpeed = 300
+var jumpSpeed = 500
 var jumpTermMultiplier = 3
+
+
+
+var health
 
 func _ready() -> void:
 	pass
@@ -29,7 +33,7 @@ func _process(delta: float) -> void:
 	#Check if the player's vector is on 0 to decelerate it
 	if (moveVector.x == 0):
 		#low power makes it slide
-		velocity.x = lerp(0, velocity.x, pow(2, -55 * delta))
+		velocity.x = lerp(0, velocity.x, pow(2, -195 * delta))
 		
 		
 	
@@ -64,7 +68,12 @@ func _process(delta: float) -> void:
 
 
 
-
+func boost():
+	#Potential to be buggy without delta
+	velocity.y -= jumpSpeed * jumpTermMultiplier 
+	position.y -= 1 
+	yield(get_tree(), "idle_frame")
+	
 
 
 #This method's made to determine whether the player is jumping
@@ -97,11 +106,11 @@ func updateAnimation():
 	if (!is_on_floor()):
 		$AnimatedSprite.play("jump")
 	elif(moveVec.x < 0):
-		$AnimatedSprite.flip_h = false
-		$AnimatedSprite.play("run")
-	elif(moveVec.x > 0):
 		$AnimatedSprite.flip_h = true
-		$AnimatedSprite.play("run")
+		$AnimatedSprite.play("walk")
+	elif(moveVec.x > 0):
+		$AnimatedSprite.flip_h = false
+		$AnimatedSprite.play("walk")
 	else:
 		$AnimatedSprite.play("idle")
 	

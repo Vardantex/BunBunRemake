@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/GFX/Items/spring_out.png" type="Texture" id=1]
+[ext_resource path="res://Assets/GFX/Items/spring.png" type="Texture" id=2]
+[ext_resource path="res://Assets/GFX/Items/spring_in.png" type="Texture" id=3]
+[ext_resource path="res://Items/JumpPad.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "boost",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 65, 30 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "JumpBoost"
+
+[node name="JumpPad" type="Node2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 4 )
+
+[node name="PadSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "idle"
+
+[node name="PadArea" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PadArea"]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/JumpBoost = SubResource( 3 )
+
+[node name="PadTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="body_entered" from="PadArea" to="." method="_on_PadArea_body_entered"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Fonts/candles_.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/MainMenu.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -19,6 +20,7 @@ default_font = SubResource( 3 )
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -52,7 +54,7 @@ margin_top = 125.0
 margin_right = 210.5
 margin_bottom = 145.0
 
-[node name="Button" type="Button" parent="Title/PlayContainer"]
+[node name="PlayButton" type="Button" parent="Title/PlayContainer"]
 margin_right = 421.0
 margin_bottom = 47.0
 theme = SubResource( 4 )
@@ -68,7 +70,7 @@ margin_right = 210.5
 margin_bottom = 232.5
 alignment = 1
 
-[node name="Button" type="Button" parent="Title/InstructionContainer"]
+[node name="InstructionButton" type="Button" parent="Title/InstructionContainer"]
 margin_right = 421.0
 margin_bottom = 47.0
 theme = SubResource( 4 )
@@ -84,7 +86,7 @@ margin_right = 210.5
 margin_bottom = 297.0
 alignment = 1
 
-[node name="Button" type="Button" parent="Title/ControlContainer"]
+[node name="ControlsButton" type="Button" parent="Title/ControlContainer"]
 margin_right = 421.0
 margin_bottom = 47.0
 theme = SubResource( 4 )
@@ -100,9 +102,14 @@ margin_right = 210.5
 margin_bottom = 357.0
 alignment = 1
 
-[node name="Button" type="Button" parent="Title/QuitContainer"]
+[node name="QuitButton" type="Button" parent="Title/QuitContainer"]
 margin_right = 421.0
 margin_bottom = 47.0
 theme = SubResource( 4 )
 text = "QUIT"
 icon_align = 1
+
+[connection signal="pressed" from="Title/PlayContainer/PlayButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Title/InstructionContainer/InstructionButton" to="." method="_on_InstructionButton_pressed"]
+[connection signal="pressed" from="Title/ControlContainer/ControlsButton" to="." method="_on_ControlsButton_pressed"]
+[connection signal="pressed" from="Title/QuitContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
